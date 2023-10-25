@@ -1,9 +1,17 @@
 <?php
 
-$paragraph = isset($_POST['paragraph']) ? $_POST['paragraph'] : 'nessun risultato';
+$paragraph = (isset($_POST['paragraph'])) ? $_POST['paragraph'] : 'nessun risultato';
+var_dump((isset($_POST['paragraph'])));
+
 $lengthParagraph = strlen($paragraph);
+
 $word = $_POST['word'];
-$wordCensored = str_replace($word, '***', $word);
+$paragrafWithWord = $_POST['paragraph'];
+
+if (str_contains($paragrafWithWord , $word)) {
+  $paragrafWithWord  = str_replace($word, '***', $paragrafWithWord);
+  $lengthParagraphWord = strlen($paragrafWithWord);
+}
 
 ?>
 
@@ -18,6 +26,8 @@ $wordCensored = str_replace($word, '***', $word);
   <h1>Risultato</h1>
   <h2>il paragrafo è "<?php echo $paragraph ?>";</h2>
   <h2>il paragrafo contiene: <?php echo $lengthParagraph ?> lettere.</h2>
-  <h3>Parola censurata : <?php echo $wordCensored ?></h3>
+  
+  <h2>il nuovo paragrafo è "<?php echo $paragrafWithWord ?>";</h2>
+  <h2>il paragrafo contiene: <?php echo $lengthParagraphWord ?> lettere.</h2>
 </body>
 </html>
