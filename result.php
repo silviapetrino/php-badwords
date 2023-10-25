@@ -1,7 +1,7 @@
 <?php
 
-$paragraph = (isset($_POST['paragraph'])) ? $_POST['paragraph'] : 'nessun risultato';
-var_dump((isset($_POST['paragraph'])));
+$paragraph = $_POST['paragraph'];
+
 
 $lengthParagraph = strlen($paragraph);
 
@@ -28,6 +28,6 @@ if (str_contains($paragrafWithWord , $word)) {
   <h2>il paragrafo contiene: <?php echo $lengthParagraph ?> lettere.</h2>
   
   <h2>il nuovo paragrafo è "<?php echo $paragrafWithWord ?>";</h2>
-  <h2>il paragrafo contiene: <?php echo $lengthParagraphWord ?> lettere.</h2>
+  <h2>il nuovo paragrafo contiene: <?php echo $lengthParagraphWord ?> lettere.</h2>
 </body>
 </html>
